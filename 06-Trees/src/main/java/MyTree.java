@@ -88,4 +88,40 @@ public class MyTree {
 
     }
 
+    // return true if node is leaf
+
+    public boolean isLeaf(Node node) {
+
+        return node.leftChild==null && node.rightChild==null;
+
+    }
+
+    // print leaves of BST
+    public void printLeaves(Node root){
+        if (root==null) return;
+        if (isLeaf(root)) System.out.print(root.value+", ");
+        printLeaves(root.leftChild);
+        printLeaves(root.rightChild);
+    }
+
+    // task -4 count leaves of a BST
+    public int countLeaves(Node root){
+        if (root==null) return 0;
+        if (isLeaf(root)) return 1;
+        return countLeaves(root.leftChild) + countLeaves(root.rightChild);
+    }
+    // task -5 sum leaf values of a BST
+    public int findSumOfLeaves(Node root){
+        if (root==null) return 0;
+        if (isLeaf(root)) return root.value;
+        return findSumOfLeaves(root.leftChild) + findSumOfLeaves(root.rightChild);
+    }
+    // task -6 Height of a node in a BST
+    public int height(Node root){
+        if (root==null) return -1;
+        if (isLeaf(root)) return 0;
+        return 1+ Math.max(height(root.leftChild), height(root.rightChild));
+    }
+
+
 }
