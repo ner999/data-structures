@@ -72,4 +72,20 @@ public class MyTree {
         }// end while
     }// end levelOrder
 
+
+    // implement contains method
+    public boolean contains(int value) {
+
+        if(root==null) return false;
+
+        Node current = root;
+        while (current!=null){
+            if(value<current.value) current=current.leftChild;
+            else if(value> current.value) current=current.rightChild;
+            else return true;
+        }
+        return false;
+
+    }
+
 }
